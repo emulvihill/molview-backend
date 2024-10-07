@@ -1,0 +1,22 @@
+type Mood {
+    id: Int!
+    name: String!
+    mood: String!
+    date: String!
+}
+
+input MoodInput {
+    name: String!
+    mood: String!
+    date: String
+}
+
+# The Root Query for the application
+type Query {
+    moods: [Mood!]!
+}
+
+# The Root Mutation for the application
+type Mutation {
+    createMood(mood: MoodInput!) : Mood!
+}

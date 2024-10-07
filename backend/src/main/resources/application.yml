@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/testdata
+    username: root
+    password: pw
+  application:
+    name: testproj-backend
+  graphql:
+    graphiql:
+      enabled: true
+  flyway:
+    create-schemas: true
+    default-schema: testdata
+
+server:
+  port: 8888
