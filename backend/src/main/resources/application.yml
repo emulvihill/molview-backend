@@ -1,16 +1,27 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/testdata
+    url: jdbc:mysql://localhost:3306/molview
     username: root
-    password: pw
+    password: password
   application:
-    name: testproj-backend
+    name: molview-backend
   graphql:
     graphiql:
       enabled: true
   flyway:
     create-schemas: true
-    default-schema: testdata
+    default-schema: molview
 
 server:
   port: 8888
+
+management:
+  security:
+    enabled: false
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info

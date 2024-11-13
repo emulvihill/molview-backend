@@ -1,13 +1,13 @@
-package com.snazzyrobot.testprojbackend;
+package com.snazzyrobot.molviewbackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TestprojBackendApplication {
+public class MolViewBackendApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TestprojBackendApplication.class, args);
+        SpringApplication.run(MolViewBackendApplication.class, args);
     }
 
 }

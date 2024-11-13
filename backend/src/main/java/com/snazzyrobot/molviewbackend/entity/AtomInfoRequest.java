@@ -1,4 +1,4 @@
-package com.snazzyrobot.testprojbackend.entity;
+package com.snazzyrobot.molviewbackend.entity;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class MoodInput {
+public class AtomInfoRequest {
     private String name;
 
     private String date;

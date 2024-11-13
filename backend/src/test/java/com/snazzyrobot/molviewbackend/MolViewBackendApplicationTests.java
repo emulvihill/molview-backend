@@ -1,10 +1,10 @@
-package com.snazzyrobot.testprojbackend;
+package com.snazzyrobot.molviewbackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TestprojBackendApplicationTests {
+class MolViewBackendApplicationTests {
 
     @Test
     void contextLoads() {

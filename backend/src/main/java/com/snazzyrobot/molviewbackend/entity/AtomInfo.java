@@ -1,4 +1,4 @@
-package com.snazzyrobot.testprojbackend.entity;
+package com.snazzyrobot.molviewbackend.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,11 +8,11 @@ import java.time.OffsetDateTime;
 @Getter
 @Setter
 @Entity(name = "Mood")
-@Table(name = "moods", schema = "testdata")
+@Table(name = "atomInfo", schema = "testdata")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Mood {
+public class AtomInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)

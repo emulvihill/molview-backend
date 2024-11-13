@@ -1,8 +1,8 @@
-CREATE TABLE testdata.moods
+CREATE TABLE molview.atominfo
 (
-    id   INT AUTO_INCREMENT NOT NULL,
-    name LONGTEXT NOT NULL,
-    date DATETIME NOT NULL,
-    mood LONGTEXT NOT NULL,
-    CONSTRAINT pk_moods PRIMARY KEY (id)
+    id   INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    pdb_filename LONGTEXT NOT NULL,
+    atom_serial INT NOT NULL,
+    request_type LONGTEXT NOT NULL,
+    info_response LONGTEXT NOT NULL
 );
