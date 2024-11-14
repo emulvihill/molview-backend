@@ -13,7 +13,7 @@ public class AIService {
     }
 
     public String askQuestion(String question) {
-        return chatClient.prompt()
+        return chatClient.prompt("gpt-40")
                 .user(question)
                 .call()
                 .content();
