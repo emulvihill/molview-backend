@@ -6,5 +6,10 @@ spring:
   application:
     name: molview-backend
   flyway:
-    create-schemas: true
+    create-schemas: false
     default-schema: molview_test
+  ai:
+    openai:
+      api-key: foo_fake_key
+      base-url: https://api.openai.com
+      chat.options.model: gpt-4o-mini

@@ -1,4 +1,4 @@
-CREATE TABLE molview.atominfo
+CREATE TABLE atominfo
 (
     id   INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     pdb_filename LONGTEXT NOT NULL,
