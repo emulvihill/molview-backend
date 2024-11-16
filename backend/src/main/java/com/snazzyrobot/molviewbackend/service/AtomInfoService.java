@@ -15,8 +15,9 @@ public class AtomInfoService {
     }
 
     public String getAtomInfo(String pdbFile, int atomId) {
-        return aiService.askQuestion(
+        final String infoResult = aiService.askQuestion(
                 "Give the chemistry properties of atom with id " + atomId + " in the following PDB formatted file:\n" + pdbFile
         );
+        return infoResult;
     }
 }

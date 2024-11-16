@@ -1,10 +1,28 @@
+scalar DateTime
 
-# The Root Query for the application
-type Query {
-    atomInfo(pdbFile: String!, atomId: Int!): String!
+type PdbData {
+    id: ID!
+    created: DateTime!
+    lastModified: DateTime!
+    name: String!
+    data: String!
+    compound: String
+    sha256: String!
 }
 
-# The Root Mutation for the application
-#type Mutation {
-#    createMood(mood: MoodInput!) : Mood!
-#}
+input CreatePdbDataInput {
+    name: String!
+    data: String!
+    compound: String!
+}
+
+type Query {
+    atomInfo(pdbFile: String!, atomId: Int!): String!
+    findPdbDataById(id: ID!): PdbData
+    allPdbData: [PdbData!]!
+}
+
+type Mutation {
+    createPdbData(input: CreatePdbDataInput!): PdbData!
+    deletePdbData(id: ID!): PdbData!
+}
