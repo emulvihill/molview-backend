@@ -1,8 +1,7 @@
 package com.snazzyrobot.molviewbackend.controller;
 
 import com.snazzyrobot.molviewbackend.entity.PdbData;
-import com.snazzyrobot.molviewbackend.repository.PdbDataRepository;
-import com.snazzyrobot.molviewbackend.utility.HashUtil;
+import com.snazzyrobot.molviewbackend.service.PdbDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -16,32 +15,25 @@ import java.util.Optional;
 public class PdbDataController {
 
     @Autowired
-    private PdbDataRepository pdbDataRepository;
+    private PdbDataService pdbDataService;
 
     @QueryMapping(name = "allPdbData")
     public List<PdbData> allPdbData() {
-        return pdbDataRepository.findAll();
+        return pdbDataService.getAllPdbData();
     }
 
     @MutationMapping(name = "createPdbData")
     public PdbData createPdbData(@Argument CreatePdbDataInput input) {
-        PdbData pdbData = new PdbData();
-        pdbData.setName(input.getName());
-        pdbData.setData(input.getData());
-        pdbData.setCompound(input.getCompound());
-        pdbData.setSha256(HashUtil.calculateSHA256(input.getData()));
-        return pdbDataRepository.save(pdbData);
+        return pdbDataService.createPdbData(input.getName(), input.getData(), input.getCompound());
     }
 
     @QueryMapping(name = "findPdbDataById")
     public Optional<PdbData> findPdbDataById(@Argument int id) {
-        return pdbDataRepository.findById(id);
+        return pdbDataService.getPdbDataById(id);
     }
 
     @MutationMapping(name = "deletePdbData")
-    public void deletePdbData(@Argument int id) {
-        if (pdbDataRepository.existsById(id)) {
-            pdbDataRepository.deleteById(id);
-        }
+    public Optional<PdbData> deletePdbData(@Argument int id) {
+        return pdbDataService.deletePdbData(id);
     }
 }
