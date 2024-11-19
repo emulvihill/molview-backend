@@ -3,7 +3,7 @@ scalar DateTime
 type PdbData {
     id: ID!
     created: DateTime!
-    lastModified: DateTime!
+    modified: DateTime!
     name: String!
     data: String!
     compound: String
@@ -17,7 +17,7 @@ input CreatePdbDataInput {
 }
 
 type Query {
-    atomInfo(pdbFile: String!, atomId: Int!): String!
+    atomInfo(pdbFile: String!, atomId: ID!): String!
     findPdbDataById(id: ID!): PdbData
     allPdbData: [PdbData!]!
 }

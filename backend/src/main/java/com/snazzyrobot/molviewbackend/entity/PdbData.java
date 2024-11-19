@@ -1,5 +1,6 @@
 package com.snazzyrobot.molviewbackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -7,28 +8,32 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.OffsetDateTime;
+import java.util.Objects;
 
-@Getter
-@Setter
 @Entity(name = "PdbData")
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "pdb_data", schema = "molview")
+@Table(name = "pdb_data")
+@Getter
+@Setter
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class PdbData {
+@AllArgsConstructor
+@ToString()
+public class PdbData implements EntityDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
-    private Integer id;
+    private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "created", nullable = false, updatable = false)
     @CreatedDate
+    @ToString.Exclude
     private OffsetDateTime created;
 
-    @Column(nullable = false)
+    @Column(name = "modified", nullable = false)
     @LastModifiedDate
-    private OffsetDateTime lastModified;
+    @ToString.Exclude
+    private OffsetDateTime modified;
 
     @Column(unique = true, nullable = false)
     private String name;
@@ -41,4 +46,9 @@ public class PdbData {
 
     @Column(unique = true, nullable = false)
     private String sha256;
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, compound, sha256);
+    }
 }

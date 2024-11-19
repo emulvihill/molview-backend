@@ -31,7 +31,7 @@ public class AtomInfoControllerTest {
     @Test
     public void testAtomInfoQuery() {
         String query = """
-            query ($pdbFile: String!, $atomId: Int!) {
+            query ($pdbFile: String!, $atomId: ID!) {
                 atomInfo(pdbFile: $pdbFile, atomId: $atomId)
             }
             """;

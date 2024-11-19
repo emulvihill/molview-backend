@@ -3,6 +3,8 @@ package com.snazzyrobot.molviewbackend.service;
 import com.snazzyrobot.molviewbackend.entity.PdbData;
 import com.snazzyrobot.molviewbackend.repository.PdbDataRepository;
 import com.snazzyrobot.molviewbackend.utility.HashUtil;
+import com.snazzyrobot.molviewbackend.utility.StringUtility;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +25,8 @@ public class PdbDataService {
         return pdbDataRepository.findById(id);
     }
 
-    public PdbData createPdbData(String name, String data, String compound) {
+    public PdbData createPdbData(@NonNull String name, @NonNull String data, String compound) {
+
         PdbData pdbData = new PdbData();
         pdbData.setName(name);
         pdbData.setData(data);
