@@ -97,7 +97,7 @@ public class PdbDataControllerTest {
                         .compound("compoundFind")
                         .sha256("shaFind")
                         .build();
-        when(pdbDataService.getPdbDataById(1)).thenReturn(Optional.of(mockPdbData));
+        when(pdbDataService.getPdbDataById(1L)).thenReturn(Optional.of(mockPdbData));
 
         graphQlTester.document("{ findPdbDataById(id: 1) { id, name, data, compound, sha256 } }")
                 .execute()

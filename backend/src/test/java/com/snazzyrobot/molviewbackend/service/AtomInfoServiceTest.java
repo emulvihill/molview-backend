@@ -27,14 +27,14 @@ public class AtomInfoServiceTest {
 
     @Test
     public void testGetAtomInfo() {
-        String pdbFile = "example.pdb";
-        int atomId = 123;
+        long pdbId = 1L;
+        long atomId = 123L;
         String expectedResponse = "Sample response from AIService";
-        String expectedQuestion = "Give the chemistry properties of atom with id " + atomId + " in the following PDB formatted file:\n" + pdbFile;
+        String expectedQuestion = "Give the chemistry properties of atom with id " + atomId + " in the following PDB Id:\n" + pdbId;
 
         Mockito.when(aiService.askQuestion(expectedQuestion)).thenReturn(expectedResponse);
 
-        String actualResponse = atomInfoService.getAtomInfo(pdbFile, atomId);
+        String actualResponse = atomInfoService.getAtomInfo(pdbId, atomId);
 
         Assertions.assertEquals(expectedResponse, actualResponse);
         Mockito.verify(aiService).askQuestion(expectedQuestion);

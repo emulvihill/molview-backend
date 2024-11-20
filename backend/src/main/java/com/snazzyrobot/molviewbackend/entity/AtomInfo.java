@@ -1,15 +1,16 @@
 package com.snazzyrobot.molviewbackend.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 @Entity(name = "AtomInfo")
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "atom_info")
 @Getter
 @Setter
@@ -28,7 +29,7 @@ public class AtomInfo implements EntityDetails {
     @ToString.Exclude
     private OffsetDateTime created;
 
-    @Column(name = "modified")
+    @Column(name = "modified", nullable = false)
     @LastModifiedDate
     @ToString.Exclude
     private OffsetDateTime modified;
@@ -36,7 +37,7 @@ public class AtomInfo implements EntityDetails {
     @ManyToOne
     @JoinColumn(name = "pdb_data_id", referencedColumnName = "id", nullable = false)
     @ToString.Exclude
-    private PdbData pdbDataId;
+    private PdbData pdbData;
 
     @Column(nullable = false)
     private Long atomId;

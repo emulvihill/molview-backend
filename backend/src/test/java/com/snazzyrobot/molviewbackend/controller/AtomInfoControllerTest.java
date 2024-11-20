@@ -24,7 +24,7 @@ public class AtomInfoControllerTest {
 
     @BeforeEach
     public void setUp() {
-        when(atomInfoService.getAtomInfo("example.pdb", 123))
+        when(atomInfoService.getAtomInfo(1L, 123L))
                 .thenReturn("Sample Atom Info");
     }
 
@@ -37,8 +37,8 @@ public class AtomInfoControllerTest {
             """;
 
         graphQlTester.document(query)
-                .variable("pdbFile", "example.pdb")
-                .variable("atomId", 123)
+                .variable("pdbId", 1L)
+                .variable("atomId", 123L)
                 .execute()
                 .path("data.atomInfo")
                 .matchesJson("\"Sample Atom Info\"");

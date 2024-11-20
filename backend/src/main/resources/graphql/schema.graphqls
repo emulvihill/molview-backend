@@ -17,7 +17,7 @@ input CreatePdbDataInput {
 }
 
 type Query {
-    atomInfo(pdbFile: String!, atomId: ID!): String!
+    atomInfo(pdbId: ID!, atomId: ID!): String!
     findPdbDataById(id: ID!): PdbData
     allPdbData: [PdbData!]!
 }

@@ -28,12 +28,12 @@ public class PdbDataController {
     }
 
     @QueryMapping(name = "findPdbDataById")
-    public Optional<PdbData> findPdbDataById(@Argument int id) {
+    public Optional<PdbData> findPdbDataById(@Argument long id) {
         return pdbDataService.getPdbDataById(id);
     }
 
     @MutationMapping(name = "deletePdbData")
-    public Optional<PdbData> deletePdbData(@Argument int id) {
+    public Optional<PdbData> deletePdbData(@Argument long id) {
         return pdbDataService.deletePdbData(id);
     }
 }

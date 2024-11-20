@@ -18,7 +18,7 @@ public class AtomInfoController {
     private final AtomInfoService atomInfoService;
 
     @QueryMapping
-    public String atomInfo(@Argument String pdbFile, @Argument Integer atomId) {
-        return atomInfoService.getAtomInfo(pdbFile, atomId);
+    public String atomInfo(@Argument Long pdbId, @Argument Long atomId) {
+        return atomInfoService.getAtomInfo(pdbId, atomId);
     }
 }

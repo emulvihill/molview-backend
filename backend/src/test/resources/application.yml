@@ -16,3 +16,7 @@ spring:
       api-key: foo_fake_key
       base-url: https://api.openai.com
       chat.options.model: gpt-4o-mini
+
+jwt:
+  secret: "fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-"
+  expiration: 86400
