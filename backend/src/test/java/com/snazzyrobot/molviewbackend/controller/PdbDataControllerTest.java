@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
 @GraphQlTest(PdbDataController.class)
@@ -55,8 +56,8 @@ public class PdbDataControllerTest {
                 .execute()
                 .path("allPdbData")
                 .matchesJson("""
-                        [{ name: "Test1", data: "data1", compound: "compound1", "sha256":"sha1" },
-                        { name: "Test2", data: "data2", compound: "compound2", "sha256":"sha2" }
+                        [{ "name": "Test1", "data": "data1", "compound": "compound1", "sha256":"sha1" },
+                        { "name": "Test2", "data": "data2", "compound": "compound2", "sha256":"sha2" }
                         ]""");
     }
 
@@ -118,7 +119,7 @@ public class PdbDataControllerTest {
                         .compound("compoundDelete")
                         .sha256("shaDelete")
                         .build();
-        when(pdbDataService.deletePdbData(anyInt())).thenReturn(Optional.of(mockPdbData));
+        when(pdbDataService.deletePdbData(anyLong())).thenReturn(Optional.of(mockPdbData));
 
         String mutation = "mutation { deletePdbData(id: 1) { id, name, data, compound, sha256 } }";
 
