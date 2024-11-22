@@ -1,0 +1,47 @@
+logging:
+  level:
+    root: info
+    org.springframework.security: debug
+spring:
+  datasource:
+    url: (set_env_variable)
+    username: (set_env_variable)
+    password: (set_env_variable)
+  application:
+    name: molview-backend
+  graphql:
+    xxxcors:
+      allow-credentials: true
+      allowed-origins:
+        - http://localhost:4200
+        - https://mv.snazzyrobot.com
+      allowed-methods:
+        - GET
+        - POST
+    graphiql:
+      enabled: true
+  flyway:
+    create-schemas: true
+    default-schema: molview
+  ai:
+    openai:
+      api-key: (set_env_variable)
+      base-url: https://api.openai.com
+      chat.options.model: gpt-4o-mini
+server:
+  port: 8888
+
+management:
+  security:
+    enabled: false
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+jwt:
+  secret: "fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-fake-secret-key-"
+  expiration: 86400
