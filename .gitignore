@@ -13,3 +13,4 @@ src/main/resources/static/
 
 ### VS Code ###
 .vscode/
+.run/

@@ -1,5 +1,6 @@
 package com.snazzyrobot.molviewbackend.configuration;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -19,10 +20,13 @@ public class CorsFilterConfiguration {
         this.env = env;
     }
 
+    @Value("${spring.graphql.cors.allowed-origins}")
+    private String allowedOriginsEnv;
+
     @Bean
     public CorsFilter corsFilter() {
 
-        String allowedOriginsEnv = env.getProperty("ALLOWED_ORIGINS");
+       // String allowedOriginsEnv = env.getProperty("ALLOWED_ORIGINS");
         List<String> allowedOrigins;
 
         if (allowedOriginsEnv == null || allowedOriginsEnv.isEmpty()) {

@@ -2,6 +2,9 @@ logging:
   level:
     root: info
 spring:
+  graphql:
+    cors:
+      allowed-origins: http://localhost
   datasource:
     url: jdbc:mysql://localhost:3306/molview_test
     username: root

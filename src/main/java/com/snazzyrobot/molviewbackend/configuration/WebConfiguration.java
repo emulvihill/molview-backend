@@ -17,11 +17,4 @@ public class WebConfiguration implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(jwtInterceptor).addPathPatterns("/graphql");
     }
-
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/graphql/**").allowedOrigins(
-                "http://localhost:4200",
-                "https://mw.snazzyrobot.com");
-    }
 };

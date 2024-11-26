@@ -1,4 +1,4 @@
-package com.snazzyrobot.molviewbackend.configuration;
+package com.snazzyrobot.molviewbackend.provider;
 
 import jakarta.annotation.Nonnull;
 import org.springframework.data.auditing.DateTimeProvider;
