@@ -27,7 +27,7 @@ spring:
       chat.options.model: gpt-4o-mini
 
 server:
-  port: 8888
+  port: 5000
 
 management:
   security:
