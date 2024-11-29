@@ -14,3 +14,4 @@ src/main/resources/static/
 ### VS Code ###
 .vscode/
 .run/
+**/node_modules/

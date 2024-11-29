@@ -2,7 +2,7 @@ FROM eclipse-temurin:21
 LABEL authors="eric_mulvihill"
 
 # Default port for the graphql apis and static web content
-EXPOSE 8888
+EXPOSE 5000
 
 # Set environment variables
 ENV APP_HOME=/opt/app
